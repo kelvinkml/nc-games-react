@@ -26,18 +26,16 @@ p{
 }
 .review-title{
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   margin: 0;
   height: 20%;
   display: flex;
 }
-.review-card-img{
-  width: 100px;
-  height: fit-content;
-  width:40%
-}
 .review-card-info{
-
-display: flex;
-flex-direction: column;
+  display: grid;
+  grid-template-columns: 70fr;
+}
+.review-card-img{
+  width:40%;
+  /* max-height: 60%; */
 }

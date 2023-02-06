@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react"
-import { instance } from "../utils/axios"
-
-export const Reviews = () => {
-    const [reviews, setReviews] = useState([])
-    useEffect(()=>{
-        instance.get('/reviews').then((result)=>{
-            setReviews(result.data.reviews)
-        })
-    }, [])
+import { useEffect} from "react"
+import { Link } from "react-router-dom"
 
 
-    return (
+export const Reviews = ({reviews, isLoading}) => {
+    if(isLoading){
+        return (
+            <h2>Loading...</h2>
+        )
+    }
+    else return (
         <section className="reviews">
             <h2>Reviews</h2>
             {reviews.map((review)=>{
                 return (
-                <section className="review-card">
-                    <div className="review-title">
+                <section key={review.review_id} className="review-card">
+                    <Link className="review-title" to={`/reviews/${review.review_id}`}>
                         <h4 id="review-title">{review.title}</h4>
                         <p>Date</p>
-                    </div>
+                    </Link>
                     <div className="review-card-info">
+                        <div className="author-category">
                         <p style={{color: 'red'}}>{review.owner}</p>
                         <p>{review.category}</p>
-                        <img className='review-card-img' src={review.review_img_url}/>
+                        </div>
+                        <img alt={review.title} className='review-card-img' src={review.review_img_url}/>
                     </div>
                 </section>
                     )
