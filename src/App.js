@@ -15,9 +15,9 @@ function App() {
     instance.get('/reviews').then((result)=>{
         setReviews(result.data.reviews)
         setIsLoading(false)
+    }).catch((err)=>{
     })
 }, [])
-
   return (
     <div>
       <header className="App">NC Games</header>
