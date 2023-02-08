@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { instance } from "../utils/axios"
+import { Comments } from "./Comments"
 
 
 export const Review = () => {
@@ -22,7 +23,7 @@ export const Review = () => {
     return (
         <section className="single-review">
             <h2>{singleReview.title}</h2>
-            <img alt={singleReview.title} src={singleReview.review_img_url}/>
+            <img className="large-img" alt={singleReview.title} src={singleReview.review_img_url}/>
             <br></br>
             <p className="author-category">By {singleReview.owner}</p>
             <p>{singleReview.category}</p>
@@ -32,8 +33,7 @@ export const Review = () => {
             <p>{singleReview.review_body}</p>
             <br></br>
             <div>
-                <p>comments will go here</p>
-                <p>WOW! amazing review!!!</p>
+                <Comments id={id}/>                
             </div>
         </section>
         

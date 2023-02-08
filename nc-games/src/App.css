@@ -39,3 +39,12 @@ p{
   width:40%;
   /* max-height: 60%; */
 }
+
+.single-review{
+  display: inline;
+}
+.large-img{
+  margin: 1%;
+  max-width: 98%;
+  max-height: fit-content;
+}
