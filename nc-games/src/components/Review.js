@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { instance } from "../utils/axios"
 import { Comments } from "./Comments"
+import { Votes } from "./Votes"
 
 
 export const Review = () => {
@@ -19,7 +20,6 @@ export const Review = () => {
             <h4>Loading...</h4>
         )
     }
-
     return (
         <section className="single-review">
             <h2>{singleReview.title}</h2>
@@ -28,7 +28,7 @@ export const Review = () => {
             <p className="author-category">By {singleReview.owner}</p>
             <p>{singleReview.category}</p>
             <br></br>
-            <p>votes will go here</p>
+            <Votes voteNum={singleReview.votes} />
             <br></br>
             <p>{singleReview.review_body}</p>
             <br></br>
@@ -39,3 +39,4 @@ export const Review = () => {
         
     )
 }
+
