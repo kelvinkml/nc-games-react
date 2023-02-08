@@ -26,7 +26,6 @@ export const Comments = ({id}) => {
                 </section>
                 )
             })}
-        </section>
-    
+        </section>    
     )
 }
