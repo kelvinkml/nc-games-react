@@ -59,7 +59,7 @@ export const Reviews = () => {
                     </Link>
                     <div className="review-card-info">
                         <div className="author-category">
-                        <p>{review.votes}</p>
+                        <p>Votes: {review.votes}</p>
                         <p style={{color: 'red'}}>{review.owner}</p>
                         <p>{review.category}</p>
                         <p>Comments: {review.comment_count}</p>
