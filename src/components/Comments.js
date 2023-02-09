@@ -16,6 +16,7 @@ export const Comments = ({id}) => {
             setComments(result.data.comments)
         })
     }, [id, refresh])
+
     const newComment = (event) => {
         event.preventDefault()
         const commentToPost = {
