@@ -9,7 +9,9 @@ export const Comments = ({id}) => {
     const [refresh, setRefresh] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState([])
-    
+    const [commentId, setCommentId] = useState()
+    const [removeComment, setRemoveComment] = useState(false)
+
     useEffect(()=>{
         instance.get(`/reviews/${id}/comments`).then((result)=>{
             setIsLoading(false)
@@ -31,6 +33,22 @@ export const Comments = ({id}) => {
             console.log(err)
         })
     }
+
+    if(removeComment){
+        instance.delete(`/comments/${commentId}`).then((result)=>{
+            console.log(result)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
+
+
+    const deleteComment = ({comment}) => {
+        console.log(comment.comment_id)
+        setCommentId(comment.comment_id)
+        setRemoveComment(true)
+    }
+
     if(isLoading){
         return <p>Comments Loading...</p>
     }
@@ -51,9 +69,10 @@ export const Comments = ({id}) => {
             </form><br></br>
             {comments.map((comment)=>{
                 return (
-                <section key={comment.comment_id}>
+                <section hidden={removeComment && comment.comment_id === commentId} key={comment.comment_id}>
                     <p>{comment.author} says: </p>
                     <p>{comment.body}</p>
+                    <button onClick={() => deleteComment({comment})}>Delete</button>
                 </section>
                 )
             })}
