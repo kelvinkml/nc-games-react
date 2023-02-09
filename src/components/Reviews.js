@@ -43,6 +43,7 @@ export const Reviews = () => {
                     <option value="created_at">Date</option>
                     <option value="votes">Votes</option>
                     <option value="title">Title</option>
+                    <option value='comment_count'>Comments</option>
                 </select>
                 <select onChange={settingOrder} name='orderby' id='order'>
                     <option value='ASC'>Ascending</option>
@@ -61,6 +62,7 @@ export const Reviews = () => {
                         <p>{review.votes}</p>
                         <p style={{color: 'red'}}>{review.owner}</p>
                         <p>{review.category}</p>
+                        <p>Comments: {review.comment_count}</p>
                         </div>
                         <img alt={review.title} className='review-card-img' src={review.review_img_url}/>
                     </div>
