@@ -8,7 +8,6 @@ export const Categories = () => {
 
     useEffect(()=>{
         instance.get('/categories').then((result)=>{
-            // console.log(result.data)
             const formattedCatag = result.data.map((category)=>{
                 let formatted = category.slug.replaceAll('-', ' ')
                 formatted = formatted.charAt(0).toUpperCase() + formatted.slice(1)
