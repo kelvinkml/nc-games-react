@@ -1,7 +1,22 @@
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { instance } from "../utils/axios"
 
 
-export const Reviews = ({reviews, isLoading}) => {
+export const Reviews = ({setReviews, reviews, setIsLoading, isLoading}) => {
+    const queryParams = new URLSearchParams(window.location.search)
+    const category = queryParams.get("category")
+    
+    useEffect(()=>{
+        setIsLoading(true)
+        instance.get('/reviews', {params: {category}}).then((result)=>{
+            setReviews(result.data.reviews)
+            setIsLoading(false)
+        }).catch((err)=>{
+        })
+    }, [category])
+
+
     if(isLoading){
         return (
             <h2>Loading...</h2>
