@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      <header className="App">NC Games</header>
+
       <Nav/>
       <Routes>
         <Route path='/reviews' element={<Reviews/>}></Route>

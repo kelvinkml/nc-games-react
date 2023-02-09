@@ -9,6 +9,6 @@ export const SignIn = () => {
     }
 
     return (
-        <p>{user}</p>
+        <p  className='username'>{user}</p>
     )
 }
