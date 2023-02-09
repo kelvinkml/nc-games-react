@@ -30,21 +30,17 @@ export const Comments = ({id}) => {
         setIsLoading(true)
         })
         .catch((err)=>{
-            console.log(err)
         })
     }
 
     if(removeComment){
-        instance.delete(`/comments/${commentId}`).then((result)=>{
-            console.log(result)
+        instance.delete(`/comments/${commentId}`).then(()=>{
         }).catch((err)=>{
-            console.log(err)
         })
     }
 
 
     const deleteComment = ({comment}) => {
-        console.log(comment.comment_id)
         setCommentId(comment.comment_id)
         setRemoveComment(true)
     }
