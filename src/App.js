@@ -4,6 +4,7 @@ import { Nav } from './components/Nav';
 import { Review } from './components/Review';
 import { Reviews } from './components/Reviews';
 import { Categories } from './components/Categories';
+import { SignIn } from './components/User';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/categories' element={<Categories/>}></Route>
         <Route path='/' element={<Reviews/>}></Route>
         <Route path='/reviews/:id' element={<Review />}></Route>
+        <Route path='/sign-in' element={<SignIn/>}></Route>
       </Routes>
     </div>
   );
