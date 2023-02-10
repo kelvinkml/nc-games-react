@@ -9,17 +9,16 @@ export const Comments = ({id}) => {
     const [refresh, setRefresh] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState([])
-    const [commentId, setCommentId] = useState()
-    const [removeComment, setRemoveComment] = useState(false)
 
     useEffect(()=>{
         instance.get(`/reviews/${id}/comments`).then((result)=>{
             setIsLoading(false)
             setComments(result.data.comments)
         })
-    }, [id, refresh])
+    }, [id, refresh, isLoading])
 
     const newComment = (event) => {
+        setIsLoading(false)
         event.preventDefault()
         const commentToPost = {
             body: comment,
@@ -33,16 +32,14 @@ export const Comments = ({id}) => {
         })
     }
 
-    if(removeComment){
-        instance.delete(`/comments/${commentId}`).then(()=>{
-        }).catch((err)=>{
-        })
-    }
-
-
+    
+    
     const deleteComment = ({comment}) => {
-        setCommentId(comment.comment_id)
-        setRemoveComment(true)
+        instance.delete(`/comments/${comment.comment_id}`)
+        .then(()=>{
+            setIsLoading(true)})
+        .catch((err)=>{})
+        
     }
 
     if(isLoading){
@@ -65,10 +62,10 @@ export const Comments = ({id}) => {
             </form><br></br>
             {comments.map((comment)=>{
                 return (
-                <section hidden={removeComment && comment.comment_id === commentId} key={comment.comment_id}>
+                <section  key={comment.comment_id}>
                     <p>{comment.author} says: </p>
                     <p>{comment.body}</p>
-                    <button onClick={() => deleteComment({comment})}>Delete</button>
+                    <button hidden={comment.author !== user} onClick={() => deleteComment({comment})}>Delete</button>
                 </section>
                 )
             })}
