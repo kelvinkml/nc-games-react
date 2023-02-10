@@ -21,7 +21,7 @@ export const SignIn = () => {
         if(canSignIn){
             setUser(queryUName)
         }
-    }, [canSignIn, queryUName])
+    }, [canSignIn, queryUName, setUser])
     return (
         <section className="sign-in">
             <form hidden={canSignIn}>
