@@ -48,14 +48,14 @@ p{
   margin: 1%;
 }
 .review-card:hover{
-  box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4);
+  /* box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4); */
   animation: review-card;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes review-card {
   0% {width: 90vw;}
-  100% {width: 91vw;}
+  100% {width: 91vw; box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4)}
 }
 .review-title{
   justify-content: space-between;
