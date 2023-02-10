@@ -6,6 +6,7 @@ import { instance } from "../utils/axios"
 export const Categories = () => {
     const [categories, setCategories] = useState([])
 
+
     useEffect(()=>{
         instance.get('/categories').then((result)=>{
             const formattedCatag = result.data.map((category)=>{
@@ -18,7 +19,6 @@ export const Categories = () => {
         
 
     }, [])
-
 
     return (
         <section>
