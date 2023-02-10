@@ -1,25 +1,38 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { instance } from "../utils/axios"
+import { NotFound } from "./NotFound"
 
 
 
 export const Reviews = () => {
+    
+    const [error, setError] = useState() 
     const [reviews, setReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [sortBy, setSortBy] = useState()
     const [asc, setAsc] = useState()
 
-    const queryParams = new URLSearchParams(window.location.search)
-    const category = queryParams.get("category")
-
+    const [serachParams] = useSearchParams()
+    let category = serachParams.get('category')
+    
+    
     useEffect(()=>{
-        instance.get('/reviews', {params: {category, sort_by: sortBy, order_by: asc}}).then((result)=>{
+        setError()
+        setIsLoading(true)
+        instance.get('/reviews', {params: {category: category, sort_by: sortBy, order_by: asc}}).then((result)=>{
             setReviews(result.data.reviews)
             setIsLoading(false)
         }).catch((err)=>{
+            console.log(err)
+            setError(err.response.data.msg)
+            setIsLoading(false)
         })
-    }, [category, sortBy, asc])
+    }, [sortBy, asc, category])
+
+    if(error){
+        return <NotFound error={error}/>
+    }
 
     const settingSort = (event) => {
         event.preventDefault()
@@ -34,7 +47,7 @@ export const Reviews = () => {
             <h2>Loading...</h2>
         )
     }
-    else return (
+        return (
         <section className="reviews">
             <h2>Reviews</h2>
             <div id="sort-by">
@@ -72,4 +85,5 @@ export const Reviews = () => {
             }
         </section>
     )
+
 }

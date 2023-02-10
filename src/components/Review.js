@@ -3,15 +3,22 @@ import { useParams } from "react-router-dom"
 import { instance } from "../utils/axios"
 import { Comments } from "./Comments"
 import { Votes } from "./Votes"
+import { NotFound } from "./NotFound"
 
 
 export const Review = () => {
+    const [error, setError] = useState()
+
+
     const [singleReview, setSingleReview] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const {id} = useParams()
     useEffect(()=>{
         instance.get(`/reviews/${id}`).then((result)=>{
             setSingleReview(result.data.review[0])
+            setIsLoading(false)
+        }).catch((err)=>{
+            setError(err.response.data.msg)
             setIsLoading(false)
         })
     }, [id])
@@ -20,6 +27,13 @@ export const Review = () => {
             <h4>Loading...</h4>
         )
     }
+
+    if(error){
+        return (
+            <NotFound error={error}/>
+        )
+    }
+
     return (
         <section className="single-review">
             <h2>{singleReview.title}</h2>

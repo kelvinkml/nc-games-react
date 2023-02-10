@@ -10,6 +10,8 @@ export const Comments = ({id}) => {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState([])
 
+    const [error, setError] = useState(false)
+
     useEffect(()=>{
         instance.get(`/reviews/${id}/comments`).then((result)=>{
             setIsLoading(false)
@@ -29,6 +31,7 @@ export const Comments = ({id}) => {
         setIsLoading(true)
         })
         .catch((err)=>{
+            setError(true)
         })
     }
 
@@ -60,6 +63,7 @@ export const Comments = ({id}) => {
                 </input>
                 <button onClick={newComment}>Submit</button>
             </form><br></br>
+            <p hidden={!error}>You must be signed in to comment</p>
             {comments.map((comment)=>{
                 return (
                 <section  key={comment.comment_id}>
