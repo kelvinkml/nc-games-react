@@ -4,7 +4,7 @@ import { instance } from "../utils/axios";
 import { createRef } from "../utils/createRef";
 
 export const SignIn = () => {
-    const { user, setUser } = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
     const [queryUName, setQueryUName] = useState('')
     const [usernames, setUsernames] = useState([])
     const [canSignIn, setCanSignIn] = useState(false)
