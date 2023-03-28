@@ -1,15 +1,17 @@
-*{
+* {
   /* border-width: 1px;
   border-style: solid; */
 }
-.header{
+.header {
   width: 100%;
-
+}
+.header-title {
+  justify-self: flex-start;
+  margin: 5px;
+  align-self: center;
 }
 .nav-bar {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   color: white;
   font-weight: bold;
   font-size: 24pt;
@@ -17,8 +19,10 @@
   margin: 0;
   background-color: red;
 }
-
-.nav-button{
+.nav-button {
+  justify-content: center;
+}
+.nav-button {
   margin: 5px;
   border: 1px;
   border-color: grey;
@@ -28,55 +32,97 @@
   height: 30px;
   width: 100px;
 }
-h4{
-  margin: 0
+h4 {
+  margin: 0;
 }
-p{
-  margin: 0
+p {
+  margin: 0;
 }
-.reviews{
+.reviews {
   margin: 1%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.review-card{
+.review-card {
   background-color: rgb(235, 235, 235);
   width: 90vw;
   border-radius: 10px;
   padding: 10px;
   margin: 1%;
 }
-.review-card:hover{
+.review-card:hover {
   /* box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4); */
   animation: review-card;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes review-card {
-  0% {width: 90vw;}
-  100% {width: 91vw; box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4)}
+  0% {
+    width: 90vw;
+  }
+  100% {
+    width: 91vw;
+    box-shadow: 5px 5px 10px rgb(87, 87, 87, 0.4);
+  }
 }
-.review-title{
+.review-title {
   justify-content: space-between;
   width: 90%;
   margin: 0;
   height: 20%;
   display: flex;
 }
-.review-card-info{
+.review-card-info {
   display: grid;
   grid-template-columns: 70fr;
 }
-.review-card-img{
-  width:40%;
+.review-card-img {
+  width: 40%;
 }
 
-.single-review{
-  display: inline;
+.single-review {
+  margin: 10px;
 }
-.large-img{
+.author {
+  font-size: 20px;
+}
+.category {
+  color: rgb(64, 64, 64);
+}
+.review-body {
+  margin: 10px;
+}
+.large-img {
   margin: 1%;
   max-width: 98%;
   max-height: fit-content;
+}
+.comment-title {
+  margin-right: 10px;
+}
+.comment-author {
+  color: rgb(64, 64, 64);
+  font-size: 14px;
+}
+.comment-body {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* .comment-input {
+  margin: 0;
+  display: flex;
+} */
+.votes {
+  font-size: 14px;
+  margin-left: 5px;
+}
+.votes-button {
+  height: 40px;
+  width: 50px;
+  background-color: rgb(223, 223, 223);
+  border-radius: 5px;
+  margin: 5px;
+  align-self: center;
 }
