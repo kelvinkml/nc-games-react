@@ -15,21 +15,20 @@ export const Nav = () => {
   return (
     <section className="nav-bar">
       <div>
-        <header className="header-title">NC Games</header>
+        <Link to={"/"}>
+          <header className="header-title">Board?</header>
+        </Link>
       </div>
       <section className="nav-buttons">
-        <Link to={"/"}>
-          <button className="nav-button">Home</button>
-        </Link>
         <Link to={"/categories"}>
-          <button className="nav-button">Categories</button>
+          <text className="nav-button">Categories</text>
         </Link>
         <Link to={"/sign-in"}>
-          <button hidden={isSignedIn} className="nav-button">
+          <text hidden={isSignedIn} className="nav-button">
             Sign In
-          </button>
+          </text>
         </Link>
-        <p>{user}</p>
+        <text className="user">{user}</text>
       </section>
     </section>
   );

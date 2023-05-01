@@ -32,24 +32,28 @@ export const Review = () => {
   }
 
   return (
-    <section className="single-review">
-      <h2>{singleReview.title}</h2>
-      <img
-        className="large-img"
-        alt={singleReview.title}
-        src={singleReview.review_img_url}
-      />
-      <br></br>
-      <p className="author">By {singleReview.owner}</p>
-      <p className="category">{singleReview.category}</p>
-      <br></br>
-      <Votes voteNum={singleReview.votes} />
-      <br></br>
-      <p className="review-body">{singleReview.review_body}</p>
-      <br></br>
-      <div>
-        <Comments id={id} />
-      </div>
-    </section>
+    <div className="single-review-page">
+      <section className="single-review">
+        <div className="image-container">
+          <img
+            className="large-img"
+            alt={singleReview.title}
+            src={singleReview.review_img_url}
+          />
+        </div>
+        <h2 className="single-review-title">{singleReview.title}</h2>
+
+        <p className="author">By {singleReview.owner}</p>
+        <p className="category">{singleReview.category}</p>
+
+        <Votes voteNum={singleReview.votes} />
+
+        <p className="review-body">{singleReview.review_body}</p>
+
+        <div>
+          <Comments id={id} />
+        </div>
+      </section>
+    </div>
   );
 };

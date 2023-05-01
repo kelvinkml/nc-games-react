@@ -17,20 +17,22 @@ export const Votes = ({ voteNum }) => {
   return (
     <div className="votes-section">
       <p className="votes">Votes: {voteNum + incNum}</p>
-      <button
-        className="votes-button"
-        disabled={incNum === 1}
-        onClick={() => incVotes(1)}
-      >
-        +1
-      </button>
-      <button
-        className="votes-button"
-        disabled={incNum === -1}
-        onClick={() => incVotes(-1)}
-      >
-        -1
-      </button>
+      <section className="votes-button-section">
+        <button
+          className="votes-button-up"
+          disabled={incNum === 1}
+          onClick={() => incVotes(1)}
+        >
+          +1
+        </button>
+        <button
+          className="votes-button-down"
+          disabled={incNum === -1}
+          onClick={() => incVotes(-1)}
+        >
+          -1
+        </button>
+      </section>
       <p hidden={errorIs}>Please refresh and try again</p>
     </div>
   );
