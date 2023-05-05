@@ -61,11 +61,15 @@ export const Comments = ({ id }) => {
               id="comment"
               onChange={(event) => setComment(event.target.value)}
             ></input>
-            <button onClick={newComment}>Submit</button>
+            <button className="comment-submit" onClick={newComment}>
+              Submit
+            </button>
           </form>
         </section>
         <br></br>
-        <p hidden={!error}>You must be signed in to comment</p>
+        <p className="hidden" hidden={!error}>
+          You must be signed in to comment
+        </p>
         {comments.map((comment) => {
           return (
             <section key={comment.comment_id}>

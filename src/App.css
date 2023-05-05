@@ -73,18 +73,21 @@ p {
   overflow: hidden;
   flex-direction: column;
   position: relative;
+  box-shadow: 0px 5px 10px 5px rgba(49, 49, 49, 0.2);
 }
 .review-title {
   z-index: 1;
   margin: 10px;
   color: rgb(36, 36, 36);
   pointer-events: none;
+  text-shadow: 0px 0px 2px rgb(234, 234, 234);
 }
 .review-card-info {
   color: rgb(36, 36, 36);
   margin: 10px;
   pointer-events: none;
   z-index: 1;
+  text-shadow: 0px 0px 2px rgb(234, 234, 234);
 }
 
 .review-card-img {
@@ -156,24 +159,49 @@ p {
     bottom: -100px;
   }
 }
+.comment-form {
+  margin-left: 10px;
+}
 .comment-title {
-  margin: 10px;
+  margin-top: 25px;
 }
 .comment-author {
   color: rgb(64, 64, 64);
   font-size: 14px;
-  margin: 10px;
+  margin-left: 10px;
 }
 .comment-body {
   font-size: 16px;
-  margin: 10px;
+  margin-left: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
-/* .comment-input {
-  margin: 0;
-  display: flex;
-} */
+.comment-input {
+  margin-top: 10px;
+}
+#comment {
+  border: 0;
+  height: 23px;
+  width: 300px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 5px;
+}
+.comment-submit {
+  margin-left: 10px;
+  border: 0;
+  height: 25px;
+  width: 70px;
+  background-color: rgb(201, 201, 201);
+  border-radius: 5px;
+  margin: 10px;
+  align-self: center;
+}
+.hidden {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 16pt;
+  color: rgb(255, 61, 61);
+}
 .votes-section {
   display: flex;
   flex-direction: row;
